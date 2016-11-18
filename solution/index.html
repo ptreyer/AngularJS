@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <!--AngularJS Script -->
+    <script data-require="angular.js@1.5.8" data-semver="1.5.8" src="https://code.angularjs.org/1.5.8/angular.js"></script>
+    <!--AngularJS App -->
+    <script src="app.js"></script>
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Bootstrap -->
+    <link data-require="bootstrap@4.0.0-alpha.2" data-semver="4.0.0-alpha.2" rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css" />
+    <script data-require="bootstrap@4.0.0-alpha.2" data-semver="4.0.0-alpha.2" src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+  </head>
+
+
+  <body ng-controller="myController">
+    
+    <div style="margin: 20px 10px 20px 10px; text-align:center">
+      <h1>Meine Klausurenübersicht</h1>
+    </div>
+    
+    <div style="margin: 50px 10px 50px 10px">
+       <form id="myForm" role="form" method="post" class="login-form">
+           <div class="form-group">
+              <input ng-model="klausur.name" type="text" placeholder="Klausurname..." class="form-control">
+           </div>
+           <div class="form-group">
+              <input ng-model="klausur.semester" type="input" placeholder="Semester..." class="form-control">
+           </div>
+           <div class="form-group">
+              <input ng-model="klausur.note" type="input" placeholder="Note..." class="form-control">
+           </div>
+           <div class="form-group">
+               <input ng-model="klausur.credits" type="input" placeholder="Credits..." class="form-control">
+           </div>
+              <button ng-click="addKlausur()" type="submit" class="btn">Klausur {{klausur.name}} hinzufügen</button>
+        </form>
+    </div>
+    
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Semester</th>
+            <th>Credits</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="x in records">
+            <td>{{x.name}}</td>
+            <td>{{x.semester}}</td>
+            <td>{{x.credits}}</td>
+            <td>{{x.note}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+
+</html>
